@@ -1,6 +1,7 @@
 package by.clevertec.microsearch.controller;
 
-import by.clevertec.microsearch.domain.News;
+import by.clevertec.microsearch.dto.CommentResponseDto;
+import by.clevertec.microsearch.dto.NewsResponseDto;
 import by.clevertec.microsearch.service.SearchService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -19,9 +20,16 @@ public class SearchController {
     private final SearchService searchService;
 
     @GetMapping("/news")
-    public ResponseEntity<Page<News>> search(@RequestParam String text, Pageable pageable) {
-        Page<News> results = searchService.search(text, pageable);
+    public ResponseEntity<Page<NewsResponseDto>> searchNews(@RequestParam String text, Pageable pageable) {
+        Page<NewsResponseDto> results = searchService.searchNews(text, pageable);
         return ResponseEntity.ok(results);
     }
+
+    @GetMapping("/comments")
+    public ResponseEntity<Page<CommentResponseDto>> searchComments(@RequestParam String text, Pageable pageable) {
+        Page<CommentResponseDto> results = searchService.searchComments(text, pageable);
+        return ResponseEntity.ok(results);
+    }
+
 
 }

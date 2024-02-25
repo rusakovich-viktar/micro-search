@@ -17,9 +17,14 @@ repositories {
     mavenCentral()
 }
 
+ext {
+    mapstructVersion = '1.5.3.Final'
+}
+
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
-
+    implementation "org.mapstruct:mapstruct:${mapstructVersion}"
+    annotationProcessor "org.mapstruct:mapstruct-processor:${mapstructVersion}"
     implementation 'org.springframework.boot:spring-boot-starter'
     runtimeOnly 'org.postgresql:postgresql'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'

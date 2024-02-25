@@ -1,6 +1,10 @@
 package by.clevertec.microsearch.service.impl;
 
-import by.clevertec.microsearch.domain.News;
+import by.clevertec.microsearch.dto.CommentResponseDto;
+import by.clevertec.microsearch.dto.NewsResponseDto;
+import by.clevertec.microsearch.mapper.CommentMapper;
+import by.clevertec.microsearch.mapper.NewsMapper;
+import by.clevertec.microsearch.repository.CommentRepository;
 import by.clevertec.microsearch.repository.NewsRepository;
 import by.clevertec.microsearch.service.SearchService;
 import lombok.RequiredArgsConstructor;
@@ -19,11 +23,18 @@ import org.springframework.transaction.annotation.Transactional;
 public class SearchServiceImpl implements SearchService {
 
     private final NewsRepository newsRepository;
-//    private final NewsMapper newsMapper;
+    private final CommentRepository commentRepository;
+    private final NewsMapper newsMapper;
+    private final CommentMapper commentMapper;
 
-    public Page<News> search(String queryString, Pageable pageable) {
-        return newsRepository.search(queryString, pageable);
-//                .map(newsMapper::toDto);
+    public Page<NewsResponseDto> searchNews(String queryString, Pageable pageable) {
+        return newsRepository.search(queryString, pageable)
+                .map(newsMapper::toDto);
+    }
+
+    public Page<CommentResponseDto> searchComments(String queryString, Pageable pageable) {
+        return commentRepository.search(queryString, pageable)
+                .map(commentMapper::toDto);
     }
 
 }
