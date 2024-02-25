@@ -1,0 +1,27 @@
+package by.clevertec.microsearch.controller;
+
+import by.clevertec.microsearch.domain.News;
+import by.clevertec.microsearch.service.SearchService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("/api/search")
+@RequiredArgsConstructor
+public class SearchController {
+
+    private final SearchService searchService;
+
+    @GetMapping("/news")
+    public ResponseEntity<Page<News>> search(@RequestParam String text, Pageable pageable) {
+        Page<News> results = searchService.search(text, pageable);
+        return ResponseEntity.ok(results);
+    }
+
+}

@@ -1,0 +1,40 @@
+spring:
+  profiles:
+    default: dev
+
+  #    active: prod
+
+  application:
+    name: micro-search
+  jpa:
+    properties:
+      hibernate:
+        show-sql: true
+        format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: none
+
+  elasticsearch:
+    restclient:
+      sniffer:
+        interval: 60m
+        delay-after-failure: 30m
+
+
+
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: DEBUG
+        type:
+          descriptor:
+            sql:
+              BasicBinder: TRACE
+server:
+  port: 8083
+
+
+
+
