@@ -1,8 +1,6 @@
 package by.clevertec.microsearch.service;
 
 
-import by.clevertec.microsearch.domain.Comment;
-import by.clevertec.microsearch.domain.News;
 import by.clevertec.microsearch.dto.CommentResponseDto;
 import by.clevertec.microsearch.dto.NewsResponseDto;
 import org.springframework.data.domain.Page;
