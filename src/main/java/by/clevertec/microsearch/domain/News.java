@@ -14,6 +14,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import lombok.experimental.FieldNameConstants;
 import org.hibernate.search.mapper.pojo.mapping.definition.annotation.FullTextField;
 import org.hibernate.search.mapper.pojo.mapping.definition.annotation.Indexed;
 
@@ -24,13 +25,17 @@ import org.hibernate.search.mapper.pojo.mapping.definition.annotation.Indexed;
 @Table(name = "news")
 @NoArgsConstructor
 @Indexed
+@FieldNameConstants
+
 public class News implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @Column(nullable = false)
     private LocalDateTime time;
+
     @Column(nullable = false)
     private LocalDateTime updateTime;
 
@@ -42,17 +47,5 @@ public class News implements Serializable {
     @Column(nullable = false)
     private String text;
 
-    @PrePersist
-    public void prePersist() {
-        if (this.time == null) {
-            LocalDateTime now = LocalDateTime.now();
-            this.time = now;
-            this.updateTime = now;
-        }
-    }
 
-    @PreUpdate
-    public void preUpdate() {
-        this.updateTime = LocalDateTime.now();
-    }
 }

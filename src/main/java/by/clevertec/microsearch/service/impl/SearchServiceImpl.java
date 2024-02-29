@@ -19,7 +19,6 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 @RequiredArgsConstructor
 @Transactional
-@EnableCaching
 public class SearchServiceImpl implements SearchService {
 
     private final NewsRepository newsRepository;

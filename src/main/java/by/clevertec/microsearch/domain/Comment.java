@@ -16,6 +16,7 @@ import java.time.LocalDateTime;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.experimental.FieldNameConstants;
 import org.hibernate.search.mapper.pojo.mapping.definition.annotation.FullTextField;
 import org.hibernate.search.mapper.pojo.mapping.definition.annotation.Indexed;
 
@@ -25,11 +26,13 @@ import org.hibernate.search.mapper.pojo.mapping.definition.annotation.Indexed;
 @Table(name = "comments")
 @NoArgsConstructor
 @Indexed
+@FieldNameConstants
 public class Comment implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @Column(nullable = false)
     private LocalDateTime time;
 
@@ -39,6 +42,7 @@ public class Comment implements Serializable {
     @FullTextField
     @Column(nullable = false)
     private String text;
+
     @FullTextField
     @Column(nullable = false)
     private String username;
@@ -47,20 +51,4 @@ public class Comment implements Serializable {
     @JoinColumn(name = "news_id", nullable = false)
     private News news;
 
-    @PrePersist
-    public void prePersist() {
-        if (this.time == null) {
-            LocalDateTime now = LocalDateTime.now();
-            this.time = now;
-            this.updateTime = now;
-        }
-        if (username == null) {
-            this.username = "anonymous";
-        }
-    }
-
-    @PreUpdate
-    public void preUpdate() {
-        this.updateTime = LocalDateTime.now();
-    }
 }
