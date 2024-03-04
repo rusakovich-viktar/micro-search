@@ -2,10 +2,6 @@ package by.clevertec.microsearch.service.impl;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.anyString;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import by.clevertec.microsearch.domain.Comment;
@@ -17,9 +13,7 @@ import by.clevertec.microsearch.mapper.NewsMapper;
 import by.clevertec.microsearch.repository.CommentRepository;
 import by.clevertec.microsearch.repository.NewsRepository;
 import by.clevertec.microsearch.util.DataTestBuilder;
-import java.util.ArrayList;
 import java.util.List;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -47,8 +41,6 @@ public class SearchServiceImplTest {
 
     @InjectMocks
     private SearchServiceImpl searchService;
-
-
 
     @Test
     public void testSearchNews() {

@@ -35,7 +35,6 @@ public class DataTestBuilder {
     @Builder.Default
     private String username = USERNAME;
 
-
     public News buildNews() {
         News news = new News();
 
@@ -61,7 +60,6 @@ public class DataTestBuilder {
         return comment;
     }
 
-
     public CommentResponseDto buildCommentResponseDto() {
         CommentResponseDto buildCommentResponseDto = new CommentResponseDto();
 
@@ -75,7 +73,6 @@ public class DataTestBuilder {
         return buildCommentResponseDto;
     }
 
-
     public NewsResponseDto buildNewsResponseDto() {
         NewsResponseDto buildNewsResponseDto = new NewsResponseDto();
 
@@ -87,6 +84,5 @@ public class DataTestBuilder {
 
         return buildNewsResponseDto;
     }
-
 
 }

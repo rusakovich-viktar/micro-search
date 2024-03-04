@@ -19,7 +19,6 @@ class NewsMapperTest {
                 .build()
                 .buildNews();
 
-
         NewsResponseDto expected = DataTestBuilder.builder()
                 .build()
                 .buildNewsResponseDto();
