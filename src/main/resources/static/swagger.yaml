@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  title: Search system management API
+  title: Search-part API
   version: 1.0.0
 paths:
   /search/news:
