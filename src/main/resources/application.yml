@@ -2,7 +2,7 @@ spring:
   profiles:
     default: dev
 
-    active: prod
+#    active: prod
 
   application:
     name: micro-search
@@ -20,18 +20,18 @@ spring:
       sniffer:
         interval: 60m
         delay-after-failure: 30m
-#
-#logging:
-#  level:
-#    org:
-#      hibernate:
-#        SQL: DEBUG
-#        type:
-#          descriptor:
-#            sql:
-#              BasicBinder: TRACE
+
 server:
   port: 8083
+
+micro-search:
+  openapi:
+    dev-url: http://localhost:8083
+    prod-url: micro-search:8083
+
+springdoc:
+  swagger-ui:
+    url: /swagger.yaml
 
 
 
