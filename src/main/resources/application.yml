@@ -1,38 +1,22 @@
 spring:
-  profiles:
-    default: dev
-
-#    active: prod
-
   application:
     name: micro-search
-  jpa:
-    properties:
-      hibernate:
-        show-sql: true
-        format_sql: true
-        dialect: org.hibernate.dialect.PostgreSQLDialect
-    hibernate:
-      ddl-auto: none
+  cloud:
+    config:
+      fail-fast: true
 
-  elasticsearch:
-    restclient:
-      sniffer:
-        interval: 60m
-        delay-after-failure: 30m
+  profiles:
+    active: dev
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
+    import: optional:configserver:http://localhost:8888
 
-server:
-  port: 8083
-
-micro-search:
-  openapi:
-    dev-url: http://localhost:8083
-    prod-url: micro-search:8083
-
-springdoc:
-  swagger-ui:
-    url: /swagger.yaml
-
-
-
-
+---
+spring:
+  config:
+    activate:
+      on-profile: prod
+    import: optional:configserver:http://cloud-config-server:8888
