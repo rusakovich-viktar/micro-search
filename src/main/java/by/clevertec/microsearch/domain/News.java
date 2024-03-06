@@ -16,15 +16,17 @@ import lombok.experimental.FieldNameConstants;
 import org.hibernate.search.mapper.pojo.mapping.definition.annotation.FullTextField;
 import org.hibernate.search.mapper.pojo.mapping.definition.annotation.Indexed;
 
+/**
+ * Сущность "Новость".
+ */
 @Entity
 @Getter
 @Setter
 @ToString
-@Table(name = "news")
-@NoArgsConstructor
 @Indexed
+@NoArgsConstructor
 @FieldNameConstants
-
+@Table(name = "news")
 public class News implements Serializable {
 
     @Id

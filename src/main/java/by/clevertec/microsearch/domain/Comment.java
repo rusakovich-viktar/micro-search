@@ -18,13 +18,16 @@ import lombok.experimental.FieldNameConstants;
 import org.hibernate.search.mapper.pojo.mapping.definition.annotation.FullTextField;
 import org.hibernate.search.mapper.pojo.mapping.definition.annotation.Indexed;
 
+/**
+ * Сущность "Комментарий".
+ */
 @Entity
 @Getter
 @Setter
-@Table(name = "comments")
-@NoArgsConstructor
 @Indexed
+@NoArgsConstructor
 @FieldNameConstants
+@Table(name = "comments")
 public class Comment implements Serializable {
 
     @Id
