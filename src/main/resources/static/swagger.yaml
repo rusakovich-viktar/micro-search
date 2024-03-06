@@ -118,3 +118,4 @@ components:
         newsId:
           type: integer
           example: 1
+          
