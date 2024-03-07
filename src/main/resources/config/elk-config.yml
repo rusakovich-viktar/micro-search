@@ -1,0 +1,5 @@
+cluster.name: "elk"
+network.host: 0.0.0.0 # Для корректной работы внутри контейнера
+discovery.type: single-node
+
+xpack.license.self_generated.type: basic
