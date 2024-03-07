@@ -12,7 +12,7 @@
  - полнотекстовый поиск по различным параметрам (для новостей и комментариев). Для потенциально объемных запросов реализована постраничность
 
 
-### Стек технологий, примененный в micro-news
+### Стек технологий, примененный в micro-search
 
 	Использованы Spring Boot 3.2.3, Java 17, Gradle 8.5 и PostgreSQL 15.1; 
     Spring Data JPA, hibernate-search-mapper-orm, hibernate-search-backend-elasticsearch, Spring Web, liquibase, mapstruct, spring-cloud-config-client, lombok
